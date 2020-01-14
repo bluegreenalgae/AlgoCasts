@@ -19,14 +19,29 @@
 
 function steps(n) {
   for (cols = 0; cols < n; cols++) {
+    step = '';
     for (rows = 0; rows < n; rows++){
       if (rows <= cols) {
-        console.log('#');
+        step = step + '#';
       } else {
-        console.log(' ');
+        step = step + ' ';
       }
     }
+    console.log(step);
   }
 }
+
+
+// function steps(n) {
+//   for (cols = 0; cols < n; cols++) {
+//     for (rows = 0; rows < n; rows++){
+//       if (rows <= cols) {
+//         console.log('#');
+//       } else {
+//         console.log(' ');
+//       }
+//     }
+//   }
+// }
 
 module.exports = steps;
