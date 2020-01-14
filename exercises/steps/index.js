@@ -17,31 +17,39 @@
 //       '### '
 //       '####'
 
-function steps(n) {
-  for (cols = 0; cols < n; cols++) {
-    step = '';
-    for (rows = 0; rows < n; rows++){
-      if (rows <= cols) {
-        step = step + '#';
-      } else {
-        step = step + ' ';
-      }
-    }
-    console.log(step);
+function steps(n, row = 0, stair = '') {
+  if (n === row) {
+    return;
   }
+
+  if (n === stair.length) {
+    console.log(stair);
+    return steps(n, row + 1);
+  }
+
+  if (stair.length <= row) {
+    stair += '#';
+  } else {
+    stair += ' ';
+  }
+  steps(n, row, stair);
+
 }
 
 
+module.exports = steps;
+
+
 // function steps(n) {
-//   for (cols = 0; cols < n; cols++) {
-//     for (rows = 0; rows < n; rows++){
+//   for (let cols = 0; cols < n; cols++) {
+//     step = '';
+//     for (let rows = 0; rows < n; rows++){
 //       if (rows <= cols) {
-//         console.log('#');
+//         step += '#';
 //       } else {
-//         console.log(' ');
+//         step += ' ';
 //       }
 //     }
+//     console.log(step);
 //   }
 // }
-
-module.exports = steps;
