@@ -17,6 +17,10 @@
 
 function matrix(n) {
   let results = [];
+  for (i = 0; i < n; i++) {
+    results.push([]);
+  }
+
   let counter = 1;
 
   let startColumn = 0;
@@ -25,25 +29,25 @@ function matrix(n) {
   let startRow = 0;
   let endRow = n - 1;
 
-  if (startColumn <= endColumn && startRow <= endColumn) {
-    for (i = startColumn; i <= endColumn; i++) {
+  while (startColumn <= endColumn && startRow <= endRow) {
+    for (let i = startColumn; i <= endColumn; i++) {
       results[startRow][i] = counter;
       counter++;
     }
     startRow++;
-    for (i = startRow; i <= endRow; i++) {
+    for (let i = startRow; i <= endRow; i++) {
       results[i][endColumn] = counter;
       counter++;
     }
     endColumn--;
 
-    for (i = endColumn; i >= startColumn; i--) {
-      results[startRow][i] = counter;
+    for (let i = endColumn; i >= startColumn; i--) {
+      results[endRow][i] = counter;
       counter++;
     }
     endRow--;
-    for (i = endRow; i >= startRow; i--) {
-      results[i][endColumn] = counter;
+    for (let i = endRow; i >= startRow; i--) {
+      results[i][startColumn] = counter;
       counter++;
     }
     startColumn++;
