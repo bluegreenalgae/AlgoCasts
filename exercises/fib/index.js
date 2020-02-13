@@ -11,9 +11,20 @@
 function fib(n) {
   let fibonacci = [0,1];
   for (i = 2; i <= n; i++) {
-    fibonacci.push(fib(n-1) + fib(n-2));
+    fibonacci.push(fibonacci[i - 1] + fibonacci[i - 2]);
   }
   return fibonacci[n];
 }
 
 module.exports = fib;
+
+
+
+
+// function fib(n) {
+//   let fibonacci = [0,1];
+//   for (i = 2; i <= n; i++) {
+//     fibonacci.push(fib(n-1) + fib(n-2));
+//   }
+//   return fibonacci[n];
+// }
