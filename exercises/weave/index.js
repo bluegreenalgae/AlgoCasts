@@ -27,20 +27,14 @@ const Queue = require('./queue');
 function weave(sourceOne, sourceTwo) {
   const result = new Queue();
 
-  if (sourceOne.length >= sourceTwo.length) {
-    const longer = sourceOne;
-  } else {
-    longer = sourceTwo;
-  }
+  while (sourceOne.peek() || sourceTwo.peek()) {
 
-  for (item in longer) {
-
-    if (sourceOne.peek() != undefined) {
+    if (sourceOne.peek()) {
       result.add(sourceOne.remove());
     }
 
-    if (sourceTwo.peek() != undefined) {
-      result.add(sourceOne.remove());
+    if (sourceTwo.peek()) {
+      result.add(sourceTwo.remove());
     }
 
   }
